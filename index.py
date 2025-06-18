@@ -1,4 +1,4 @@
-from  line_coding_waveform.menu.show_meu import  choice_menu
+from  line_coding_waveform.menu.show_menu import  choice_menu
 
 def main():
     while True:
@@ -7,7 +7,7 @@ def main():
             # conversi angka yang diinput user ke biner
             covert_biner = format(user_input, "032b")
             print(covert_biner)
-            choice_menu()
+            choice_menu(covert_biner,user_input)
         except ValueError:
             print("input hanya boleh angka !!")
             continue
