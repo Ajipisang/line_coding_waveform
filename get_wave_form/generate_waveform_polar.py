@@ -5,8 +5,10 @@ def generate_waveform(bitstream,type):
             return  nrz_i(bitstream)
         elif type == "RZ polar":
             return  rz_polar(bitstream)
-        elif type == "manchester":
-            return manchester(bitstream)
+        elif type == "manchester thomas":
+            return manchester_thomas(bitstream)
+        elif type == "manchester IEEE":
+            return manchester_IEEE(bitstream)
         elif type == "Differential Manchester":
             return diff_manchester(bitstream)
 
@@ -50,7 +52,21 @@ def rz_polar(bitstream):
 
     return time,level_signals
 
-def manchester(bitstream):
+def manchester_thomas(bitstream):
+    bits=[int(b) for b in bitstream]
+    time=[]
+    level_signals=[]
+
+    for index,bit in enumerate(bits):
+        time.extend([index, index + 0.5, index + 1])
+        if bit ==1 :
+            level_signals.extend([1,-1,-1])
+        else:
+            level_signals.extend([-1,1,1])
+
+    return time,level_signals
+
+def manchester_IEEE(bitstream):
     bits=[int(b) for b in bitstream]
     time=[]
     level_signals=[]
