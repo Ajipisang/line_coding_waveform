@@ -13,7 +13,8 @@ def plot_polar(bitstream,user_input,type):
     plt.ylabel('Voltage Level')
     plt.xticks([],[])
     plt.axhline(y=0, color='black', linestyle='-', linewidth=1)
-
+    plt.xlim(0, len(bitstream))  # Membuat sumbu X hanya selebar bitstream
+    plt.margins(x=0)
     for x in range(len(bitstream)+1):
         plt.axvline(x, color="gray", linestyle="--", linewidth="0.5")
 
