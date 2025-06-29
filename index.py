@@ -7,14 +7,16 @@ def convert_bit(id):
         binary_4bit.append(biner)
     bitstream = ''.join(binary_4bit)
     return bitstream
+
+
 def main():
     while True:
         try:
-            user_input = int(input("input angka yang ingin di simulasikan (mis : 1513623040) >> "))
+            user_input = str(input("input angka yang ingin di simulasikan (mis : 1513623040) >> "))
             # conversi angka yang diinput user ke biner
             convert_biner = convert_bit(user_input)
             print(len(convert_biner))
-            choice_menu(convert_biner,user_input)
+            choice_menu(str(user_input),user_input)
         except ValueError:
             print("input hanya boleh angka !!")
             continue

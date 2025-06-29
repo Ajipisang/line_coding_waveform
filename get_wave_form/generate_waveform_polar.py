@@ -19,7 +19,7 @@ def nrz_l(bitstream):
     time=[]
     level_signals=[]
     for index,bit in enumerate(bits):
-        level = 1 if bit == 1 else -1
+        level = -1 if bit == 1 else 1
         time.extend([index, index + 1])
         level_signals.extend([level, level])
     return  time,level_signals
