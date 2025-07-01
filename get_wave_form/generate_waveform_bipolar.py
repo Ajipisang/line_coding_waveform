@@ -11,7 +11,7 @@ def AMI(bitstream):
     bits = [int(b) for b in bitstream]
     time = []
     level_signals = []
-    current_voltage = -1
+    current_voltage = 1
     for index, bit in enumerate(bits):
         time.extend([index, index +1])
         if bit ==1 :
@@ -37,7 +37,7 @@ def B8ZS(bitstream):
             for j in range (8):
                 time.extend([i+j,i+j+1])
                 level_signals.extend([subst[j],subst[j]])
-            # current_voltage*=1
+
             i+=8
         else:
             bit=bits[i]
